@@ -1,2 +1,2 @@
 # cpp_pirmer_plus
-Excersises of the book &lt;&lt;C++ primer plus>>.
+Excersises of the book <C++ primer plus>.
