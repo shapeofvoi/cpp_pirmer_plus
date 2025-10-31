@@ -13,8 +13,6 @@ int main(){
     A2.save(1);
     A2.show();
 
-    
-
     Person one;
     Person two("Smythecraft");
     Person three("Dimwiddy", "Sam");
