@@ -1,0 +1,14 @@
+[
+{
+  "directory": "D:/C++ primer plus/build",
+  "command": "D:\\LLVM\\bin\\clang++.exe -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -o CMakeFiles\\chapter10.dir\\chapter_10.cpp.obj -c \"D:\\C++ primer plus\\chapter_10.cpp\"",
+  "file": "D:/C++ primer plus/chapter_10.cpp",
+  "output": "D:/C++ primer plus/build/CMakeFiles/chapter10.dir/chapter_10.cpp.obj"
+},
+{
+  "directory": "D:/C++ primer plus/build",
+  "command": "D:\\LLVM\\bin\\clang++.exe -O0 -g -Xclang -gcodeview -D_DEBUG -D_DLL -D_MT -Xclang --dependent-lib=msvcrtd -o CMakeFiles\\chapter10.dir\\chapter_10_main.cpp.obj -c \"D:\\C++ primer plus\\chapter_10_main.cpp\"",
+  "file": "D:/C++ primer plus/chapter_10_main.cpp",
+  "output": "D:/C++ primer plus/build/CMakeFiles/chapter10.dir/chapter_10_main.cpp.obj"
+}
+]
