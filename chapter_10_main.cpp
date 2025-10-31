@@ -11,6 +11,7 @@ int main(){
     A2.show();
 
     A2.save(1);
+    
     A2.show();
 
     Person one;
