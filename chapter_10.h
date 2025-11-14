@@ -62,4 +62,70 @@ namespace SALES{
     };
 }
 
+// 5th
+struct customer {
+    char fullname[35];
+    double payment;
+};
+
+typedef customer Item;
+class Stack{
+    private: 
+        enum {MAX = 10};
+        Item items[MAX];
+        int top;
+        double deleted_payment_total;
+    
+    public:
+        Stack();
+        bool isempty() const;
+        bool isfull() const;
+        bool push(const Item & item);
+        bool pop(Item & Item);
+};
+
+class Move {
+    private:
+        double x;
+        double y;
+    
+    public:
+        Move(double a = 0, double b = 0);
+        void showmove() const;
+        Move add(const Move & m) const;
+        void reset (double a= 0, double b = 0);
+};
+
+// 7th
+class Plorg {
+    private:
+        static const int len = 19;  // static 表示这是类共享常量（所有对象用一个）
+        char name[len + 1];
+        int CI;
+
+    public:
+        Plorg(const int & ci, const int ln = 6, const char * na = "Plorga");
+        void setCI(const int & ci);
+        void showPlorg();
+
+
+};
+
+// 8th
+typedef int item;
+class List{
+    private:
+        enum {MAX = 100};
+        item array[MAX];
+        int len = 0;
+     
+    public:
+        // List();
+        void push_back(const item & x);
+        bool isempty();
+        bool isfull();
+        void visit(void (*pf) (item & x));
+        void showList();
+};
+
 #endif

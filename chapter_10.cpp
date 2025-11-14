@@ -103,3 +103,99 @@ void SALES::Sales::showSales(){
         << "The min is: " << min << std::endl
         << "The average of array is: " << average << std::endl;
 }
+
+Stack::Stack(){
+    top = 0;
+    deleted_payment_total = 0;
+}
+
+bool Stack::isempty() const{
+    return top == 0;
+}
+
+bool Stack::isfull() const{
+    return top == MAX;
+}
+
+bool Stack::push(const Item & item){
+    if (top < MAX){
+        items[top++] = item;
+        return true;
+    }
+    else
+        return false;
+}
+
+bool Stack::pop(Item & item){
+    if (top > 0){
+        deleted_payment_total += item.payment;
+        item = items[--top];
+        std::cout << "The total of payment is: " << deleted_payment_total;
+        return true;
+    }
+    else
+        return false;
+}
+
+// 6th
+Move::Move(double a, double b) {
+    x = a;
+    y = b;
+}
+
+void Move::showmove() const {
+    std::cout << "The x is: " << x << std::endl
+        << "The y is: " << y << std::endl;  
+}
+
+Move Move::add(const Move & m) const {
+    // 第一个const 表示不会修改传入的参数m对象
+    // 第二个const 表示不会修改成员变量，如x, y
+    auto x_new = x + m.x;
+    auto y_new = y + m.y;
+    Move result(x_new, y_new);
+
+    return result;
+}
+
+Plorg::Plorg(const int & ci, const int ln, const char * na){
+    std::strncpy(name, na, ln); // 如果na没有填满name，自动用'\0'填满剩下位置
+    name[ln] = '\0';
+    CI = ci;
+}
+
+void Plorg::setCI(const int & ci){
+    CI = ci;
+    std::cout << "The CI has been modified! CI = " << CI << std::endl;
+}
+
+void Plorg::showPlorg(){
+    std::cout << "The name is: " << name 
+        << "\nThe CI is: " << CI << std::endl;
+}
+
+void List::push_back(const item & x){
+    array[len++] = x;
+}
+
+bool List::isempty(){
+    return len == 0;
+}
+
+bool List::isfull(){
+    return len == MAX;
+}
+
+void List::visit(void (*pf) (item & x)){
+    // 
+    for (int i = 0; i < len; ++i){
+        pf(array[i]);
+    }
+}
+
+void List::showList(){
+    for (int i = 0; i < len; ++i){
+        std::cout << "The No." << i + 1 << " element is: " << array[i];
+    }
+}
+
