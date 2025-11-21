@@ -284,7 +284,7 @@ complexx::complexx(): x(0), y(0) {}
 complexx::complexx(double a, double b): x(a), y(b) {}
 
 complexx::~complexx(){
-
+    
 }
 
 complexx complexx::operator+(const complexx & c) const {

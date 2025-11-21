@@ -13,7 +13,7 @@
 					"linkFrameworkDirectories" : [],
 					"linkLibraries" : []
 				},
-				"path" : "D:/LLVM/bin/clang++.exe",
+				"path" : "D:/LLVM/bin/clang-cl.exe",
 				"version" : "19.1.0"
 			},
 			"language" : "CXX",

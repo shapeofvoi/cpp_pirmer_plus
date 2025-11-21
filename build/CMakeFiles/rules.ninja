@@ -12,12 +12,17 @@
 # =============================================================================
 
 #############################################
+# localized /showIncludes string
+
+msvc_deps_prefix = Note: including file: 
+
+
+#############################################
 # Rule for compiling CXX files.
 
 rule CXX_COMPILER__chapter10_unscanned_Debug
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}D:\LLVM\bin\clang++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  deps = msvc
+  command = ${LAUNCHER}${CODE_CHECK}D:\LLVM\bin\clang-cl.exe  /nologo -TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB -c -- $in
   description = Building CXX object $out
 
 
@@ -25,7 +30,7 @@ rule CXX_COMPILER__chapter10_unscanned_Debug
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__chapter10_Debug
-  command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && D:\LLVM\bin\clang++.exe -nostartfiles -nostdlib $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Xlinker /MANIFEST:EMBED -Xlinker /implib:$TARGET_IMPLIB -Xlinker /pdb:$TARGET_PDB -Xlinker /version:0.0  $LINK_PATH $LINK_LIBRARIES $MANIFESTS && $POST_BUILD"
+  command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && "C:\Program Files\CMake\bin\cmake.exe" -E vs_link_exe --msvc-ver=1944 --intdir=$OBJECT_DIR --rc=D:\LLVM\bin\llvm-rc.exe --mt=D:\LLVM\bin\llvm-mt.exe --manifests $MANIFESTS -- D:\LLVM\bin\lld-link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0 $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
@@ -34,9 +39,8 @@ rule CXX_EXECUTABLE_LINKER__chapter10_Debug
 # Rule for compiling CXX files.
 
 rule CXX_COMPILER__chapter11_unscanned_Debug
-  depfile = $DEP_FILE
-  deps = gcc
-  command = ${LAUNCHER}${CODE_CHECK}D:\LLVM\bin\clang++.exe $DEFINES $INCLUDES $FLAGS -MD -MT $out -MF $DEP_FILE -o $out -c $in
+  deps = msvc
+  command = ${LAUNCHER}${CODE_CHECK}D:\LLVM\bin\clang-cl.exe  /nologo -TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB -c -- $in
   description = Building CXX object $out
 
 
@@ -44,7 +48,25 @@ rule CXX_COMPILER__chapter11_unscanned_Debug
 # Rule for linking CXX executable.
 
 rule CXX_EXECUTABLE_LINKER__chapter11_Debug
-  command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && D:\LLVM\bin\clang++.exe -nostartfiles -nostdlib $FLAGS $LINK_FLAGS $in -o $TARGET_FILE -Xlinker /MANIFEST:EMBED -Xlinker /implib:$TARGET_IMPLIB -Xlinker /pdb:$TARGET_PDB -Xlinker /version:0.0  $LINK_PATH $LINK_LIBRARIES $MANIFESTS && $POST_BUILD"
+  command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && "C:\Program Files\CMake\bin\cmake.exe" -E vs_link_exe --msvc-ver=1944 --intdir=$OBJECT_DIR --rc=D:\LLVM\bin\llvm-rc.exe --mt=D:\LLVM\bin\llvm-mt.exe --manifests $MANIFESTS -- D:\LLVM\bin\lld-link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0 $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
+  description = Linking CXX executable $TARGET_FILE
+  restat = $RESTAT
+
+
+#############################################
+# Rule for compiling CXX files.
+
+rule CXX_COMPILER__chapter12_unscanned_Debug
+  deps = msvc
+  command = ${LAUNCHER}${CODE_CHECK}D:\LLVM\bin\clang-cl.exe  /nologo -TP $DEFINES $INCLUDES $FLAGS /showIncludes /Fo$out /Fd$TARGET_COMPILE_PDB -c -- $in
+  description = Building CXX object $out
+
+
+#############################################
+# Rule for linking CXX executable.
+
+rule CXX_EXECUTABLE_LINKER__chapter12_Debug
+  command = C:\Windows\system32\cmd.exe /C "$PRE_LINK && "C:\Program Files\CMake\bin\cmake.exe" -E vs_link_exe --msvc-ver=1944 --intdir=$OBJECT_DIR --rc=D:\LLVM\bin\llvm-rc.exe --mt=D:\LLVM\bin\llvm-mt.exe --manifests $MANIFESTS -- D:\LLVM\bin\lld-link.exe /nologo $in  /out:$TARGET_FILE /implib:$TARGET_IMPLIB /pdb:$TARGET_PDB /version:0.0 $LINK_FLAGS $LINK_PATH $LINK_LIBRARIES && $POST_BUILD"
   description = Linking CXX executable $TARGET_FILE
   restat = $RESTAT
 
