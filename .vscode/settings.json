@@ -1,0 +1,9 @@
+{
+    "cmake.configureOnOpen": false,
+    "cmake.generator": "MinGW Makefiles",
+    "cmake.preferredGenerators": ["MinGW Makefiles"],
+    "cmake.configureSettings": {
+        "CMAKE_C_COMPILER": "D:/msys64/ucrt64/bin/gcc.exe",
+        "CMAKE_CXX_COMPILER": "D:/msys64/ucrt64/bin/g++.exe"
+    }
+}

@@ -184,3 +184,218 @@ int String::has(const char c) {
     }
     return count;
 }
+
+/*==================Stock类方法实现=================*/
+Stock::Stock(): len(7), shares(0), share_val(0), total_val(0) {
+    company = new char[len + 1];
+    strcpy(company, "no name");
+}
+
+Stock::Stock(const char * co, long n, double pr) {
+    len = strlen(co);
+    company = new char[len + 1];
+    strcpy(company, co);
+
+    if (n < 0) {
+        cout << "Number of shares can't be negative; "
+            << company << " shares set to 0.\n";
+        shares = 0;
+    }
+    else
+        shares = n;
+    share_val = pr;
+    set_tot();
+}
+
+Stock::~Stock() {
+    delete [] company;
+}
+
+void Stock::buy(long num, double price) {
+    if (num < 0) {
+        cout << "Number of shares purchased can't be nagetive. "
+            << "Transaction is aborted.\n";
+    }
+    else {
+        shares += num;
+        share_val = price;
+        set_tot();
+    }
+}
+
+void Stock::sell(long num, double price) {
+    if (num < 0) {
+        cout << "Number of shares sold can't be negative. "
+            << "Transaction is aborted.\n";
+    }
+    else {
+        shares -= num;
+        share_val = price;
+        set_tot();
+    }
+}
+
+void Stock::update(double price) {
+    share_val = price;
+    set_tot();
+}
+
+const Stock & Stock::topval(const Stock & s) const {
+    if (s.total_val > total_val) {
+        return s;
+    }
+    else 
+        return *this;
+}
+
+ostream & operator<<(ostream & os, const Stock & sto) {
+    using std::ios_base;
+    ios_base::fmtflags orig = 
+        os.setf(ios_base::fixed, ios_base::floatfield);
+    std::streamsize prec = os.precision(3);
+
+    os << "Company: " << sto.company 
+        << " Shares: " << sto.shares << '\n';
+    os << " Share Price: $" << sto.share_val;
+
+    os.precision(2);
+    os << " Total Worth: $" << sto.total_val;
+
+    os.setf(orig, ios_base::floatfield);
+    os.precision(prec);
+
+    return os;
+}
+
+/*=================Stack类方法实现=================*/
+Stack::Stack(int n){
+    if (n > MAX) {
+        cout << "The max number of elements can't be more than " << MAX
+             << "\nThe constructor didn't work.";
+        n = MAX;
+    }
+    else {
+        size = n;
+        pitems = new Item[size];
+        top = 0;
+    }
+
+
+}
+
+Stack::Stack(const Stack & st) {
+    size = st.size;
+    top = st.top;
+    pitems = new Item[size];
+    for (int i = 0; i < top; ++i) {
+        pitems[i] = st.pitems[i];
+    }
+}
+
+Stack::~Stack() {
+    delete [] pitems;
+}
+
+bool Stack::isempty() const{
+    return top == 0;
+}
+
+bool Stack::isfull() const{
+    return top == size;
+}
+
+bool Stack::push(const Item & item){
+    if (top < size){
+        pitems[top++] = item;
+        return true;
+    }
+    else
+        return false;
+}
+
+bool Stack::pop(Item & item){
+    if (top > 0){
+        item = pitems[--top];
+        return true;
+    }
+    else
+        return false;
+}
+
+Stack & Stack::operator=(const Stack & st) {
+    // if (*this == st)
+        // return *this;
+    delete [] pitems;
+    size = st.size;
+    top = st.top;
+    pitems = new Item[size];
+    for (int i = 0; i < top; ++i) {
+        pitems[i] = st.pitems[i];
+    }
+
+    return *this;
+
+}
+
+/*=============Queue类方法实现===================*/
+Queue::Queue(int qs): qsize(qs) {
+    front = rear = nullptr;
+    items = 0;
+}
+
+Queue::~Queue() {
+    Node * temp;
+    while (front != nullptr) {
+        temp = front;
+        front = front->next;
+        delete temp;  // 因为队列的每个元素是用new创建的新对象
+    }
+}
+
+bool Queue::isempty() const {
+    return items == 0;
+}
+
+bool Queue::isfull() const {
+    return items == qsize;
+}
+
+int Queue::queuecount() const {
+    return items;
+}
+
+bool Queue::enqueue(const Item & item) {
+    if (isfull())
+        return false;
+    Node * add = new Node;
+    add->item = item;
+    add->next = nullptr;
+    // 边界情况：如果队列本来为空，则front应该指向刚刚添加的那个元素
+    if (front == nullptr)
+        front = add;
+    else
+        rear->next = add;
+    rear = add;
+    items++;
+    return true;
+}
+// 增删的核心是，处理好front, rear指针
+bool Queue::dequeue(Item & item) {
+    if (isempty())
+        return false;
+    item = front->item;
+    Node * temp = front;
+    front = front->next;
+    delete temp;
+    items--;
+    // 边界情况：如果刚删除的是最后一个元素，则rear指向的对象被删除了
+    if (items == 0)
+        rear = nullptr;
+
+    return true;
+}
+
+void Customer::set(long when) {
+    processtime = std::rand() % 3 + 1;
+    arrive = when;
+}
