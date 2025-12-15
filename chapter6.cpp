@@ -15,7 +15,7 @@ int main(){
 }
 */
 /*P1*/
-/*
+// /*
 int main(){
     char ch;
     cout << "Enter a character: (enter '@' to quit)\n";
@@ -32,7 +32,7 @@ int main(){
     }
     return 0;
 }
-*/
+// */
 /*P2*/
 /*
 const int Max = 10;
@@ -314,6 +314,7 @@ int main(){
 */
 
 /*P7*/
+/*
 int main(){
     cout << "Enter words (q to quit):\n";
     string word;
@@ -334,3 +335,4 @@ int main(){
         << others << " others.\n";
     return 0;
 }
+    */

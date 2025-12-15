@@ -89,7 +89,7 @@ int main(){
 } 
 */
 
-/* P7/8
+// /* P7/8
 struct Pizza{
     string company;
     float diameter;
@@ -113,7 +113,8 @@ int main(){
     cout << "Pizza weight: " << p1->weight << endl;
     delete p1;  //释放内存
     return 0;
-}  */
+}  
+// */
 /*
 #include <array>
 int main(){
@@ -127,7 +128,7 @@ int main(){
     return 0;
 }
 */
-
+/*
 int main(){
     char ch;
     int count = 0;
@@ -142,3 +143,4 @@ int main(){
     cout << endl << count << " characters read." << endl;
     return 0;
 }
+*/

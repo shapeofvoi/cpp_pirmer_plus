@@ -15,7 +15,7 @@ int main(){
     };
 
     for (int i = 0; i < CityNum; ++i){
-        cout << p_cities[i] << " at "<< &cities[i] << endl;
+        cout << p_cities[i] << " at "<< &p_cities[i] << endl;
         // cout << cities[i] << " at " << (int)&cities[i] << endl;
     }
     cout << p_cities << endl;
@@ -23,6 +23,8 @@ int main(){
     cout << *(p_cities + 1) << endl;
     return 0;
 }
+*/
+// /*
 int main(){
     cout << "Enter the two nums:" << endl;
     int a, b;
@@ -31,10 +33,11 @@ int main(){
     for (int i = a; i <= b; ++i){
         sum += i;
     }
-    cout << "The sum between " << a << " and " << b << " is: " << sum << endl;
+    cout << "The sum of " << a << " and " << b << " is: " << sum << endl;
     return 0;
-} 
-*/
+}
+
+// */
 /*
 P2
 const int ArSize = 16;
@@ -78,7 +81,7 @@ int main(){
 /* P7
 int main(){
     const char months[12][20] = {
-        "January", "February", "March", "April", "May", "June",
+        "January", "Febrauary", "March", "April", "May", "June",
         "July", "August", "September", "October", "November", "December"
     };
     int sum = 0, sale_single[12];
@@ -152,6 +155,8 @@ int main(){
     return 0;
 }
 */
+
+/*
 int main(){
     cout << "Please enter thr number of rows:";
     int rows;
@@ -166,3 +171,4 @@ int main(){
     }
     return 0;
 }
+*/

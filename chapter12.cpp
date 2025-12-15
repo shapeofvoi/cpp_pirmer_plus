@@ -1,6 +1,6 @@
 #include <iostream>
 #include <cstring>
-#include "chapter12.h"
+#include "chapter12.hpp"
 
 // Cow::Cow(): name("warrior"), weight(100) {  数组不能用列表初始化 X
 //     hobby = new char[4];
@@ -11,7 +11,7 @@
 Cow::Cow(): weight(100) {
     std::strcpy(name, "warrior");
     hobby = new char[4];
-    std::strcpy(hobby, "run");
+    strcpy(hobby, "run");
 }
 
 Cow::Cow(const char * nm, const char * ho, double wt) {
