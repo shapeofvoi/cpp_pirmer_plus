@@ -4,6 +4,8 @@ add_executable(chapter10 chapter_10.cpp chapter_10_main.cpp)
 add_executable(chapter11 chapter11.cpp chapter11_main.cpp)
 add_executable(chapter12 chapter12.cpp chapter12_main.cpp)
 add_executable(chapter13 chapter13.cpp chapter13_main.cpp)
+add_executable(chapter14 chapter14.cpp chapter14_main.cpp)
+add_executable(chapter15 chapter15.cpp chapter15_main.cpp)
 
 if (MSVC)
     add_definitions(-D_CRT_SECURE_NO_WARNINGS)

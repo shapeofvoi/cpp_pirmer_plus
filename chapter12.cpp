@@ -379,6 +379,7 @@ bool Queue::enqueue(const Item & item) {
     items++;
     return true;
 }
+
 // 增删的核心是，处理好front, rear指针
 bool Queue::dequeue(Item & item) {
     if (isempty())
